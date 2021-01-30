@@ -12,6 +12,8 @@
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 
     <!--Linking CSS-->
@@ -31,14 +33,14 @@
         <div style="display:flex;justify-content:center;align-items:center;">
             <div class="questionsBlock">
                 <label> Are You Hangry or Hungry?
-                    <select>
+                    <select id = "hungerLevel">
                         <option value="Hangry">Hangry</option>
                         <option value="Hungry">Hungry</option>
                     </select>
                 </label>
     
                 <label> What Cuisine Do You Want?
-                    <select>
+                    <select id = "cuisineOption">
                         <option value="Italian">Italian</option>
                         <option value="Chinese">Chinese</option>
                         <option value="Indian">Indian</option>
@@ -48,7 +50,7 @@
                 </label>
                 
                 <div class = "btn">
-                <button type="button" class="success button">Save</button>
+                <button type="button" id= "searchBtn" class="success button">Save</button>
                 </div>
 
             </div>
