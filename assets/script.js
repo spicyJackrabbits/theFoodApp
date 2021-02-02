@@ -1,3 +1,4 @@
+
 // get geolocation lat and long
 // 
 
@@ -46,11 +47,41 @@ $("#searchBtn").on("click", function () {
     })
         .then(response => {
             console.log(response)
-<<<<<<< HEAD
+
             // console.log(response.data.restaurants[0]);
-=======
+
             console.log(response.data.restaurants[0]);
->>>>>>> 791978f8314bf797d5d232f41fb3ea269545aed1
+
+// Request Geo location
+var long = "";
+var lat = "";
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        //disable save button
+    }
+}
+
+function showPosition(position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+}
+
+getLocation()
+
+// on click receives geo locations
+$("#searchBtn").on("click", function (getLocation) {
+
+    console.log(lat);
+    console.log(long);
+
+
+ 
+    var eatTime = $("#hungerLevel").find(":selected").text();
+    console.log(eatTime)
+
 
         })
         // if (hungerStage === "Hangry") {
