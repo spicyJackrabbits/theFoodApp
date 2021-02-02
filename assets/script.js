@@ -46,7 +46,11 @@ $("#searchBtn").on("click", function () {
     })
         .then(response => {
             console.log(response)
+<<<<<<< HEAD
             // console.log(response.data.restaurants[0]);
+=======
+            console.log(response.data.restaurants[0]);
+>>>>>>> 791978f8314bf797d5d232f41fb3ea269545aed1
 
         })
         // if (hungerStage === "Hangry") {
