@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Link to Foundation-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
     <!-- Compressed CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+  
     <title>Food App</title>
 
     <!--Linking CSS-->
@@ -27,6 +32,8 @@
 
     <!-- This is the form-->
     <main>
+        <!--This centers everthing-->
+
 
         <div style="display:flex;justify-content:center;align-items:center;">
             <div class="questionsBlock">
@@ -54,10 +61,35 @@
                     <button type="button" class="success button">Save</button>
                 </div>
 
-            </div>
-        </div>
+        <div class="row">
+            <!--This creates the questions and answer options-->
+            <div style="display:flex;justify-content:center;align-items:center;">
+                <div class="questionsBlock" class="columns medium-6 large-4">
+                    <label> Are You Hangry or Hungry?
+                        <select id="hungerLevel">
+                            <option value="Hangry">Hangry</option>
+                            <option value="Hungry">Hungry</option>
+                        </select>
+                    </label>
 
-    </main>
+                    <label> What Do You Crave?
+                        <select id="cuisineOption">
+                            <!-- I changed the values to find the cuisines with some more detail without having to do more dot notation WE CAN ADD WHATEVER YOU ALL WANT -->
+                            <option value="Burgers">Burgers</option>
+                            <option value="Pizza">Pizza</option>
+                            <option value="Tacos">Tacos</option>
+                            <option value="Vegetarian">Vegetarian</option>
+                            <option value="Wings">Wings</option>
+                        </select>
+                    </label>
+
+                    <!--This creates the Save Button-->
+                    <div class="btn">
+                        <button type="button" id="searchBtn" class="success button">Save</button>
+                    </div>
+                </div>
+            </div>
+
     <script src="./assets/script.js"></script>
 </body>
 

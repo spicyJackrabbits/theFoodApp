@@ -20,3 +20,9 @@ body{
     background-position: right bottom, left top;
     background-repeat: no-repeat, repeat;
 }
+/* .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  } */
