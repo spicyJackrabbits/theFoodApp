@@ -6,9 +6,23 @@ body{
     text-align: center;
 }
 
-.center {
+/* #hangryhungry {
+    
+} */
+
+#example1 {
+    background: url(img_tree.gif) left top no-repeat, url(img_flwr.gif) right bottom no-repeat, url(https://www.variety.org.au/wa/wp-content/uploads/2016/07/2560x1440-white-solid-color-background-1600x900.jpg) left top repeat;
+    background-size: 50px, 130px, auto;
+  }
+
+#example1 {
+    background-image: url("https://cutewallpaper.org/21/plain-white-background-hd/Download-Wallpaper-Blank-White-Background-Cikimmcom.jpg"), url("https://i.imgur.com/GKDdIv9.gif");
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;
+}
+/* .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-  }
+  } */
