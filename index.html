@@ -12,10 +12,10 @@
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Food App</title>
 
     <!--Linking CSS-->
-    <link rel = "stylesheet" type = "text/css" href = "./assets/style.css"/>
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
 </head>
 
 <body>
@@ -30,13 +30,16 @@
 
         <div style="display:flex;justify-content:center;align-items:center;">
             <div class="questionsBlock">
-                <label> Are You Hangry or Hungry?
-                    <select>
-                        <option value="Hangry">Hangry</option>
-                        <option value="Hungry">Hungry</option>
-                    </select>
+                <div id="hangryhungry"></div>
+                <label>Are You Hangry or Hungry?</label>
+                
+                </style>
+                <select>
+                    <option value="Hangry">Hangry</option>
+                    <option value="Hungry">Hungry</option>
+                </select>
                 </label>
-    
+
                 <label> What Cuisine Do You Want?
                     <select>
                         <option value="Italian">Italian</option>
@@ -46,16 +49,16 @@
                         <option value="Comfort">Comfort</option>
                     </select>
                 </label>
-                
-                <div class = "btn">
-                <button type="button" class="success button">Save</button>
+
+                <div class="btn">
+                    <button type="button" class="success button">Save</button>
                 </div>
 
             </div>
-          </div>
+        </div>
 
     </main>
-<script src="./assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
