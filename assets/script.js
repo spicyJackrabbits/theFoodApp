@@ -85,13 +85,15 @@ $("#searchBtn").on("click", function () {
 
                     
                     // const card = $("<div>").addClass("columns medium-6 large-8");
-                    const cardStyle = $("<div>").addClass("card").style("width: 250px;");
+                    // const cardStyle = $("<div>").addClass("card").style("width: 250px;");
                     const name = $("<h5>").addClass(".card-divider").text(returnedOutput.name);
-                    const address = $("<p>").addClass(".card-section").text(returnedOutput.location.address);
-                    const phone_numbs = $("<p>").addClass(".card-section").text(returnedOutput.phone_numbers);
-                    const costForTwo = $("<p>").addClass(".card-section").text(returnedOutput.average_cost_for_two);
-                    const menuBtn = $("<button>").addClass(".button warning").text("Menu").attr("href", returnedOutput.menu_url);
-                    const directions = $("<button>").addClass(".button warning").text("Directions").attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude);
+                    const address = $("<p>").addClass(".card-section").text("Address: " + returnedOutput.location.address);
+                    const phone_numbs = $("<p>").addClass(".card-section").text("Phone: " + returnedOutput.phone_numbers);
+                    const costForTwo = $("<p>").addClass(".card-section").text("Cost for two: $" + returnedOutput.average_cost_for_two);
+                    const menuBtn = $("<button>").addClass(".button warning").attr("href", returnedOutput.menu_url).text("Menu");
+                    const directions = $("<button>").addClass(".button warning")
+                    .attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude)
+                    .text("Directions");
 
                     $(".card-divider").append(name);
                     $(".card-section").append(address,phone_numbs,costForTwo,menuBtn,directions);
