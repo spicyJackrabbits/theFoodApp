@@ -20,7 +20,11 @@ function showPosition(position) {
 
 getLocation();
 
+$(".card").hide();
+
 $("#searchBtn").on("click", function () {
+
+    $(".card").show();
 
     // user input data location, hunger level, and craving
     console.log("Lattitude: " + lat);
@@ -29,7 +33,7 @@ $("#searchBtn").on("click", function () {
     let hungerStage = $("#hungerLevel").find(":selected").text();
     console.log("Hunger Level: " + hungerStage);
 
-    let theCrave = $("#cuisineOption").find(":selected").text().toLowerCase();
+    let theCrave = $("#cuisineOption").find(":selected").text();
     console.log("Craving: " + theCrave);
 
     localStorage.setItem("Search_History", JSON.stringify(theCrave));
@@ -60,8 +64,9 @@ $("#searchBtn").on("click", function () {
 
             .then(response => {
                 console.log(response)
-                // testing to find the name, phone number, location, user rating if avaialbe
 
+                $("#foodChoice").empty();
+    
                 for (var i = 0; i < response.restaurants.length; i++) {
                     console.log("Name: " + response.restaurants[i].restaurant.name);
                     console.log("Address: " + response.restaurants[i].restaurant.location.address);
@@ -71,43 +76,26 @@ $("#searchBtn").on("click", function () {
                     console.log("Average cost for 2: " + response.restaurants[i].restaurant.average_cost_for_two);
                     console.log("Menu: " + response.restaurants[i].restaurant.menu_url);
 
-
-                    // function getFoodNow(response) {
-
-                    // }
-
                     let returnedOutput = response.restaurants[i].restaurant;
+                    let lastChoice = localStorage.getItem("Search_History");
+console.log(lastChoice)
+                
+                    let card = $("<div>").addClass("card").css("width","300px");
+                    let name = $("<h5>").addClass("card-divider").text(returnedOutput.name);
+                    let address = $("<p>").addClass("card-section").text("Address: " + returnedOutput.location.address);
+                    let phone_numbs = $("<p>").addClass("card-section").text("Phone: " + returnedOutput.phone_numbers);
+                    let costForTwo = $("<p>").addClass("card-section").text("Cost for two: $" + returnedOutput.average_cost_for_two);
+                    let previousChoice = $("<p>").addClass(".card-section").text("Last Craving: " + lastChoice); 
+                    let menuBtn = $("<a>").addClass("button warning").attr("href", returnedOutput.menu_url).text("Menu");
+                    let directions = $("<a>").addClass("button warning")
+                        .attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude)
+                        .text("Directions");
 
-                    $(".card-divider").empty();
 
-                    $(".card-section").empty();
-                    // $("#choiceGen").empty();
-
-                    
-                    // const card = $("<div>").addClass("columns medium-6 large-8");
-                    // const cardStyle = $("<div>").addClass("card").style("width: 250px;");
-                    const name = $("<h5>").addClass(".card-divider").text(returnedOutput.name);
-                    const address = $("<p>").addClass(".card-section").text("Address: " + returnedOutput.location.address);
-                    const phone_numbs = $("<p>").addClass(".card-section").text("Phone: " + returnedOutput.phone_numbers);
-                    const costForTwo = $("<p>").addClass(".card-section").text("Cost for two: $" + returnedOutput.average_cost_for_two);
-                    const menuBtn = $("<button>").addClass(".button warning").attr("href", returnedOutput.menu_url).text("Menu");
-                    const directions = $("<button>").addClass(".button warning")
-                    .attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude)
-                    .text("Directions");
-
-                    $(".card-divider").append(name);
-                    $(".card-section").append(address,phone_numbs,costForTwo,menuBtn,directions);
-                    // cardStyle.append(name,phone_numbs,costForTwo,menuBtn,directions);
-                    // card.append(cardStyle);
-                    // $("#choiceGen").append(card);
-
+                card.append(name,address, phone_numbs, costForTwo,previousChoice, menuBtn, directions);
+                    $("#foodChoice").append(card);
+        
                 };
-
-
-
-                // getFoodNow(response);
-
-
 
 
             });
@@ -118,3 +106,21 @@ $("#searchBtn").on("click", function () {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
