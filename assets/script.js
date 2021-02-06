@@ -135,7 +135,7 @@ $("#searchBtn").on("click", function () {
         $.ajax({
             method: "GET",
             url: "https://api.giphy.com/v1/gifs/search?api_key=KG2mY5zWex2Wfc6XGVJo0AbW6ZqLe2rL&q=" + theCrave + "$limit=1",
-        }).then(response => {
+        }).when(response => {
             console.log(response);
             var results = response.data;
             console.log(response.data);
@@ -143,20 +143,20 @@ $("#searchBtn").on("click", function () {
             console.log(response)
             var results = response.data;
             for (var j = 0; j < results.length; j++) {
-                var gifDiv = $("<div>");
+                // var gifDiv = $("<div>");
                 // var rating = results[j].rating;
-                // var p = $("<p>").text("Rating: " + rating);
-                var personImage = $("<img>");
-                personImage.attr("src", results[0].images.downsized_large.url);
-                // gifDiv.prepend(p);
-                gifDiv.append(personImage);
-                $("#foodChoice").append(gifDiv);
+                // // var p = $("<p>").text("Rating: " + rating);
+                // var personImage = $("<img>");
+                // personImage.attr("src", results[j].images.fixed_height.url);
+                // // gifDiv.prepend(p);
+                // gifDiv.append(personImage);
+                // $("#foodChoice").append(gifDiv);
 
 
 
-                // let image = $("<div>").addClass("card-divider");
-                // image.append($("<img>").attr("src", results[j].embeded_url));
-                // $("#foodChoice").append
+                let image = $("<div>").addClass("card-divider");
+                image.append($("<img>").attr("src", results[j].embeded_url));
+                $("#foodChoice").append
 
             }
         });
