@@ -15,7 +15,7 @@ The goal is to suggest a place to eat! We want out app to:
 Our biggest challenges were getting the APIs to call, merging our updates correctly to the repository, and making our site responsive. Our team communication has been a huge success! We opened all lines of communication via Zoom, Slack, and phone, to touch base with each other about questions we have, ideas we've come up with, and etc. We have also been successful with moving towards M.V.P. Our team was very transparent about skill levels. With all four of us being new to coding there were struggles but we all worked hard to grow our skills. In the end, we hoped for M.V.P and we were successful.
 ## Our Application
 Please see an image of our application:
-![Image of Deployed App](./assets/Hungry_Hangry_Hippo1.png)
+![Image of Deployed App](./assets/Hungry_Hangry_Hippo.png)
 
 ---
 Links
