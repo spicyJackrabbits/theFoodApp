@@ -16,6 +16,13 @@ h1 {
     font-family: 'Comic Sans';
 }
 
+#map{
+    height: 140px;
+    width:74%;
+    padding:25%;
+
+}
+
 /* #example1 {
     background: url(img_tree.gif) left top no-repeat, url(img_flwr.gif) right bottom no-repeat, url(https://www.variety.org.au/wa/wp-content/uploads/2016/07/2560x1440-white-solid-color-background-1600x900.jpg) left top repeat;
     background-size: 50px, 130px, auto;

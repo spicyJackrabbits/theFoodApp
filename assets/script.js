@@ -1,6 +1,6 @@
 
 // 
-let lat = "";
+let lit = "";
 let lon = "";
 // let lat = " ";
 // let lon = "";
@@ -39,7 +39,7 @@ function initMap() {
           position: latLng,
           map: map,
         });
-        map.setCenter(newMarker);
+        map.setCenter(newMarker); 
     }
     // google api 
     // Initialize and add the map
@@ -52,7 +52,7 @@ $("#searchBtn").on("click", function () {
     $(".card").show();
 
     // user input data location, hunger level, and craving
-    console.log("Lattitude: " + lat);
+    console.log("Lattitude: " + lit);
     console.log("Longitude: " + lon);
 
     let hungerStage = $("#hungerLevel").find(":selected").text();
@@ -80,7 +80,7 @@ $("#searchBtn").on("click", function () {
         }
         $.ajax({
             method: "GET",
-            url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&q=" + cuisine + "&sort=real_distance&count=" + count,
+            url: "https://developers.zomato.com/api/v2.1/search?lat=" + lit + "&lon=" + lon + "&q=" + cuisine + "&sort=real_distance&count=" + count,
             headers: {
                 "user-key": "8d520ba5b6b4a6f2f35781a790c6fc0d",
                 "content-type": "application/json"
