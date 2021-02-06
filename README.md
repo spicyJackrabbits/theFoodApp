@@ -7,7 +7,7 @@ The goal of our application is to make the lives of Hungry and Hangry people eas
 ## Description
 Have you ever turned from Hungry to Hangry in a matter of minutes? We've all been there. Now there's a solution: Hungry Hangry Hippo! This is an app that not only narrows down your cravings but also helps you locate a restaurant based on how you're feeling. Hungry? Our app returns 5 local restaurants based on your food choice within driving distance. Hangry? Our app returns 1 local restaurant based on your food choice that is near you, so you can knock out those hunger pains right away. Decisions made easy!
 ## Goal
-The goal is to suggest a place to eat! We want out app to:
+The goal is to suggest a place to eat! We want our app to:
 * Ask someone if they're "Hangry or Hungry?" and figure out what they're craving
 * Depending on answers, our app will suggest either 1 or 5 restaurants near the user
 * We will also inform the user of each restaurants' location
