@@ -1,26 +1,25 @@
 body{
-    background-color: mediumaquamarine;
-    background-image: url();
+    background-image: linear-gradient(to bottom right, turquoise, tan);
     background-position: cover;
     background-repeat: no repeat;
 }
-
 .btn {
     text-align: center;
 }
-
 h1 {
     font-family: 'Comic Sans';
 }
 .questionsBlock {
     font-family: 'Comic Sans';
 }
-
 #map{
     height: 140px;
     width:74%;
     padding:25%;
+}
 
+#foodChoice{
+    font-family: 'Comic Sans'; 
 }
 
 /* #example1 {
