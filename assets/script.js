@@ -1,6 +1,4 @@
-
-// 
-let lit = "";
+let lat = "";
 let lon = "";
 // let lat = " ";
 // let lon = "";
@@ -15,35 +13,35 @@ function initMap() {
         center: atl,
     });
 }
-    // asking permission to get user location
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.watchPosition(showPosition);
-        } else {
-            //   disable button?
-        }
+// asking permission to get user location
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition);
+    } else {
+        //   disable button?
     }
-    function showPosition(position) {
-        lat = position.coords.latitude;
-        lon = position.coords.longitude;
-    }
-    function drawMarker(lat, lon){
-        lat = parseInt(lat)
-        lon =  parseInt(lon);
-        console.log(lat);
-        console.log(lon);
-        console.log(typeof lat);
-        console.log(typeof lon);
-        const latLng = new google.maps.LatLng(lat,lon);
-        var newMarker = new google.maps.Marker({
-          position: latLng,
-          map: map,
-        });
-        map.setCenter(newMarker); 
-    }
-    // google api 
-    // Initialize and add the map
-    getLocation();
+}
+function showPosition(position) {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+}
+function drawMarker(lat, lon) {
+    lat = parseInt(lat)
+    lon = parseInt(lon);
+    console.log(lat);
+    console.log(lon);
+    console.log(typeof lat);
+    console.log(typeof lon);
+    const latLng = new google.maps.LatLng(lat, lon);
+    var newMarker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+    });
+    map.setCenter(newMarker);
+}
+// google api 
+// Initialize and add the map
+getLocation();
 
 $(".card").hide();
 
@@ -52,7 +50,7 @@ $("#searchBtn").on("click", function () {
     $(".card").show();
 
     // user input data location, hunger level, and craving
-    console.log("Latitude: " + lit);
+    console.log("Lattitude: " + lat);
     console.log("Longitude: " + lon);
 
     let hungerStage = $("#hungerLevel").find(":selected").text();
@@ -71,7 +69,7 @@ $("#searchBtn").on("click", function () {
 
         let cuisine = theCrave;
         let count = "";
-       
+
 
         if (hungerStage === "Hangry") {
             count = 1
@@ -80,7 +78,7 @@ $("#searchBtn").on("click", function () {
         }
         $.ajax({
             method: "GET",
-            url: "https://developers.zomato.com/api/v2.1/search?lat=" + lit + "&lon=" + lon + "&q=" + cuisine + "&sort=real_distance&count=" + count,
+            url: "https://developers.zomato.com/api/v2.1/search?lat=" + lat + "&lon=" + lon + "&q=" + cuisine + "&sort=real_distance&count=" + count,
             headers: {
                 "user-key": "8d520ba5b6b4a6f2f35781a790c6fc0d",
                 "content-type": "application/json"
@@ -89,28 +87,15 @@ $("#searchBtn").on("click", function () {
 
             .then(response => {
                 console.log(response)
-           
-                // $.ajax({
-                //     method: "GET",
-                //     url: "https://api.giphy.com/v1/gifs/search?api_key=KG2mY5zWex2Wfc6XGVJo0AbW6ZqLe2rL&q=" + theCrave,
-                // }).then(response => {
-                //     console.log(response)
-                //     var results = response.data;
-                   
-                //     for (var i = 0; results.length > 5; i++) {
-                
-                //         let image = $("<img>").addClass("card-divider").attr("src", results[i].url)
-                //     }
-                 
-                // });
-           
+
+
                 $("#foodChoice").empty();
 
                 for (var i = 0; i < response.restaurants.length; i++) {
                     // let giphyImage = image;
                     console.log("Name: " + response.restaurants[i].restaurant.name);
                     console.log("Address: " + response.restaurants[i].restaurant.location.address);
-                    console.log("Latitude: " + response.restaurants[i].restaurant.location.latitude);
+                    console.log("Lattitude: " + response.restaurants[i].restaurant.location.latitude);
                     console.log("Longitude: " + response.restaurants[i].restaurant.location.longitude);
                     console.log("Phone Number: " + response.restaurants[i].restaurant.phone_numbers);
                     console.log("Average cost for 2: " + response.restaurants[i].restaurant.average_cost_for_two);
@@ -122,7 +107,7 @@ $("#searchBtn").on("click", function () {
 
                     let card = $("<div>").addClass("card").css("width", "300px");
                     let name = $("<h5>").addClass("card-divider").text(returnedOutput.name);
-                    // let image = $("<img>").addClass("card-divoder").attr("src", returnedOutput.photos_url);
+                    // .append("<img src='"+ trendingResponse.data[i].images.original.url+"' />")
                     let address = $("<p>").addClass("card-section").text("Address: " + returnedOutput.location.address);
                     let phone_numbs = $("<p>").addClass("card-section").text("Phone: " + returnedOutput.phone_numbers);
                     let costForTwo = $("<p>").addClass("card-section").text("Cost for two: $" + returnedOutput.average_cost_for_two);
@@ -145,6 +130,40 @@ $("#searchBtn").on("click", function () {
 
     howHungry();
 
+    function getGiphy() {
+        $.ajax({
+            method: "GET",
+            url: "https://api.giphy.com/v1/gifs/search?api_key=KG2mY5zWex2Wfc6XGVJo0AbW6ZqLe2rL&q=" + theCrave + "$limit=1",
+        }).then(response => {
+            console.log(response);
+            var results = response.data;
+            console.log(response.data);
+
+            console.log(response)
+            var results = response.data;
+            for (var j = 0; j < results.length; j++) {
+                // var gifDiv = $("<div>");
+                // var rating = results[j].rating;
+                // // var p = $("<p>").text("Rating: " + rating);
+                // var personImage = $("<img>");
+                // personImage.attr("src", results[j].images.fixed_height.url);
+                // // gifDiv.prepend(p);
+                // gifDiv.append(personImage);
+                // $("#foodChoice").append(gifDiv);
+
+
+
+                let image = $("<div>").addClass("card-divider");
+                image.append($("<img>").attr("src",results[j].images.fixed_height.url));
+                $("#foodChoice").append(image);
+
+            }
+        });
+    };
+
+
+
+    getGiphy();
 
 });
 
