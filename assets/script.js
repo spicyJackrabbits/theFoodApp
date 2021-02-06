@@ -52,7 +52,7 @@ $("#searchBtn").on("click", function () {
     $(".card").show();
 
     // user input data location, hunger level, and craving
-    console.log("Lattitude: " + lit);
+    console.log("Latitude: " + lit);
     console.log("Longitude: " + lon);
 
     let hungerStage = $("#hungerLevel").find(":selected").text();
@@ -110,7 +110,7 @@ $("#searchBtn").on("click", function () {
                     // let giphyImage = image;
                     console.log("Name: " + response.restaurants[i].restaurant.name);
                     console.log("Address: " + response.restaurants[i].restaurant.location.address);
-                    console.log("Lattitude: " + response.restaurants[i].restaurant.location.latitude);
+                    console.log("Latitude: " + response.restaurants[i].restaurant.location.latitude);
                     console.log("Longitude: " + response.restaurants[i].restaurant.location.longitude);
                     console.log("Phone Number: " + response.restaurants[i].restaurant.phone_numbers);
                     console.log("Average cost for 2: " + response.restaurants[i].restaurant.average_cost_for_two);
