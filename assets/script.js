@@ -84,48 +84,45 @@ $("#searchBtn").on("click", function () {
                 "user-key": "8d520ba5b6b4a6f2f35781a790c6fc0d",
                 "content-type": "application/json"
             }
-        })
-
-            .then(response => {
-                console.log(response)
+        }).then(response => {
+            console.log(response);
 
 
-                $("#foodChoice").empty();
+            $("#foodChoice").empty();
 
-                for (var i = 0; i < response.restaurants.length; i++) {
-                    // let giphyImage = image;
-                    console.log("Name: " + response.restaurants[i].restaurant.name);
-                    console.log("Address: " + response.restaurants[i].restaurant.location.address);
-                    console.log("Lattitude: " + response.restaurants[i].restaurant.location.latitude);
-                    console.log("Longitude: " + response.restaurants[i].restaurant.location.longitude);
-                    console.log("Phone Number: " + response.restaurants[i].restaurant.phone_numbers);
-                    console.log("Average cost for 2: " + response.restaurants[i].restaurant.average_cost_for_two);
-                    console.log("Menu: " + response.restaurants[i].restaurant.menu_url);
+            for (var i = 0; i < response.restaurants.length; i++) {
+                // let giphyImage = image;
+                console.log("Name: " + response.restaurants[i].restaurant.name);
+                console.log("Address: " + response.restaurants[i].restaurant.location.address);
+                console.log("Lattitude: " + response.restaurants[i].restaurant.location.latitude);
+                console.log("Longitude: " + response.restaurants[i].restaurant.location.longitude);
+                console.log("Phone Number: " + response.restaurants[i].restaurant.phone_numbers);
+                console.log("Average cost for 2: " + response.restaurants[i].restaurant.average_cost_for_two);
+                console.log("Menu: " + response.restaurants[i].restaurant.menu_url);
 
-                    let returnedOutput = response.restaurants[i].restaurant;
-                    let lastChoice = localStorage.getItem("Search_History");
-                    console.log(lastChoice);
+                let returnedOutput = response.restaurants[i].restaurant;
+                let lastChoice = localStorage.getItem("Search_History");
+                console.log(lastChoice);
 
-                    let card = $("<div>").addClass("card").css("width", "300px");
-                    let name = $("<h5>").addClass("card-divider").text(returnedOutput.name);
-                    // .append("<img src='"+ trendingResponse.data[i].images.original.url+"' />")
-                    let address = $("<p>").addClass("card-section").text("Address: " + returnedOutput.location.address);
-                    let phone_numbs = $("<p>").addClass("card-section").text("Phone: " + returnedOutput.phone_numbers);
-                    let costForTwo = $("<p>").addClass("card-section").text("Cost for two: $" + returnedOutput.average_cost_for_two);
-                    let previousChoice = $("<p>").addClass(".card-section").text("Last Craving: " + lastChoice);
-                    let menuBtn = $("<a>").addClass("button warning").attr("href", returnedOutput.menu_url).text("Menu");
-                    let directions = $("<a>").addClass("button warning")
-                        .attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude)
-                        .text("Directions");
-
-
-                    card.append(name, address, phone_numbs, costForTwo, previousChoice, menuBtn, directions);
-                    $("#foodChoice").append(card);
-
-                };
+                let card = $("<div>").addClass("card").css("width", "300px");
+                let name = $("<h5>").addClass("card-divider").text(returnedOutput.name);
+                let address = $("<p>").addClass("card-section").text("Address: " + returnedOutput.location.address);
+                let phone_numbs = $("<p>").addClass("card-section").text("Phone: " + returnedOutput.phone_numbers);
+                let costForTwo = $("<p>").addClass("card-section").text("Cost for two: $" + returnedOutput.average_cost_for_two);
+                let previousChoice = $("<p>").addClass(".card-section").text("Last Craving: " + lastChoice);
+                let menuBtn = $("<a>").addClass("button warning").attr("href", returnedOutput.menu_url).text("Menu");
+                let directions = $("<a>").addClass("button warning")
+                    .attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude)
+                    .text("Directions");
 
 
-            });
+                card.append(name, address, phone_numbs, costForTwo, previousChoice, menuBtn, directions);
+                $("#foodChoice").append(card);
+
+            };
+
+
+        });
 
     };
 
@@ -135,7 +132,7 @@ $("#searchBtn").on("click", function () {
         $.ajax({
             method: "GET",
             url: "https://api.giphy.com/v1/gifs/search?api_key=KG2mY5zWex2Wfc6XGVJo0AbW6ZqLe2rL&q=" + theCrave + "$limit=1",
-        }).when(response => {
+        }).then(response => {
             console.log(response);
             var results = response.data;
             console.log(response.data);
@@ -154,9 +151,9 @@ $("#searchBtn").on("click", function () {
 
 
 
-                let image = $("<div>").addClass("card-divider");
-                image.append($("<img>").attr("src", results[j].embeded_url));
-                $("#foodChoice").append
+                // let image = $("<div>").addClass("card-divider");
+                // image.append($("<img>").attr("src", results[j].embeded_url));
+                // $("#foodChoice").append
 
             }
         });

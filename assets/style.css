@@ -5,6 +5,7 @@ body{
 }
 .btn {
     text-align: center;
+    
 }
 h1 {
     font-family: 'Comic Sans';
@@ -20,6 +21,15 @@ h1 {
 
 #foodChoice{
     font-family: 'Comic Sans'; 
+}
+
+.card {
+    margin: 10px;
+}
+
+.card h5 {
+    color:orangered;
+    text-align: center;
 }
 
 /* #example1 {
