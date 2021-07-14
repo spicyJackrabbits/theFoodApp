@@ -112,8 +112,8 @@ $("#searchBtn").on("click", function () {
                 let previousChoice = $("<p>").addClass(".card-section").text("Last Craving: " + lastChoice);
                 let menuBtn = $("<a>").addClass("button warning").attr("href", returnedOutput.menu_url).text("Menu");
                 let directions = $("<a>").addClass("button warning")
-                    .attr("href", "https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude)
-                    .text("Directions");
+                    .attr("href", )
+                    .text("Directions");"https://www.google.com/maps/dir/Current+Location/" + returnedOutput.location.latitude + "," + returnedOutput.location.longitude
 
 
                 card.append(name, address, phone_numbs, costForTwo, previousChoice, menuBtn, directions);
